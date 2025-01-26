@@ -30,11 +30,8 @@ def sort_by(dict):
 
 def sorted_list(results):
     char_list = []
-    for char, num in results.items():
-        char_dict = {}
-        char_dict["char"] = char
-        char_dict["num"] = num
-        char_list.append(char_dict)
+    for char in results:
+        char_list.append({"char": char, "num": results[char]})
     char_list.sort(reverse=True, key=sort_by)
     return char_list
 
