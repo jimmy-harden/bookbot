@@ -1,11 +1,16 @@
+import sys
+
 def main():
-    path = "books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book")
+        sys.exit(1)
+    path = sys.argv[1]
     text = get_book_text(path)
     words = count_book_words(text)
     characters = character_count(text)
     char_list = sorted_list(characters)
     print_report(path, words, char_list)
- 
+
 def get_book_text(path):
     with open(path) as f:
         return f.read()
